@@ -1,0 +1,31 @@
+HomeCycler Javascript library.
+
+Self-contained object that allows you to create a page element which cycles through 
+multiple states, either cross-fading or sequentially fading. Extensible so that 
+other elements on the page can also be affected. Requires Prototype.js. 
+See usage examples below.
+
+
+USAGE EXAMPLE (simple):
+
+cyc = new HomeCycler({
+	slideclass: 'hpslide'
+});
+cyc.begin();	
+
+
+
+USAGE EXAMPLE (more complete):	
+
+cyc = new HomeCycler({
+	cycle_duration: 6000, 
+	slideclass: 'hpblock', 
+	mode: 'crossfade', 
+	after_advance: function(oj) {
+		var mc = $('main_content');
+		var el = oj.slides[oj.homeslide];
+		var n = el.id.split('_')[1];
+		mc.setStyle('background-image: url(' + window.BASE_URL + 'images/dashbg-' + n + '.jpg);');
+	}
+});
+cyc.begin();

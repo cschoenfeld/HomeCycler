@@ -6,9 +6,12 @@
 	other elements on the page can also be affected. See usage examples below.
 
 	@author Charles Schoenfeld, Adams & Knight
-	@version 1.0
+	@version 1.1
 	
 	Version History:
+	1.1: 
+		Added a stopCycling() function.
+	
 	1.0:
 		Initial Release		
 	
@@ -160,6 +163,11 @@ var HomeCycler = Class.create({
 		if (this.slides.size() > 0 && this.auto_advance !== false) {
 			this.cyc = setInterval(this.cycle_slides.bind(this), this.cycle_duration);
 		}
+	},
+	
+	stopCycling: function() {
+		this.auto_advance = false;
+		clearInterval(this.cyc);
 	}
 	
 });

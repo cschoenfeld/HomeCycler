@@ -153,7 +153,7 @@ CAS.HomeCycler.prototype = {
 					duration: this.fade_speed, 
 					complete: jQuery.proxy(function() {
 						jQuery(this.slides[this.homeslide]).hide();
-						jQuery(this.slides[dx]).animate({ 'opacity': 0 }, this.fade_speed);
+						jQuery(this.slides[dx]).animate({ 'opacity': 1 }, this.fade_speed);
 						this.homeslide = dx;
 						// If a hook function has been defined, call it here.
 						if (typeof this.after_advance == 'function') { this.after_advance(this); }						
